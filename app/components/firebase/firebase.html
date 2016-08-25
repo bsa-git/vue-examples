@@ -1,0 +1,47 @@
+<blockquote>
+    <p class="lead">This example uses <a href="https://www.firebase.com/" target="_blank" rel="external">Firebase</a> as the data persistence backend and syncs between clients in real time (you can try opening it in multiple browser tabs). In addition, it performs instant validation using computed properties and triggers CSS transitions when adding/removing items.</p>
+    <footer>This example can be found <a href="http://vuejs.org/examples/firebase.html" target="_blank">here</a></footer>
+</blockquote>
+
+<form class="form-horizontal" v-on:submit.prevent="addUser">
+    <div class="form-group" v-bind:class="{ 'has-success': validation.name, 'has-error': !validation.name }">
+        <label for="inputName" class="col-sm-2 control-label">User Name</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" id="inputName" placeholder="Jane Doe" v-model="newUser.name">
+            <span id="helpBlock1" class="help-block" v-show="!validation.name">Name cannot be empty.</span>
+        </div>
+    </div>
+    <div class="form-group" v-bind:class="{ 'has-success': validation.email, 'has-error': !validation.email }">
+        <label for="inputEmail" class="col-sm-2 control-label">User Email</label>
+        <div class="col-sm-5">
+            <input type="email" class="form-control" id="inputEmail" placeholder="jane.doe@example.com" v-model="newUser.email">
+            <span id="helpBlock2" class="help-block" v-show="!validation.email">Please provide a valid email address.</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default"><i class="fa fa-user-plus" aria-hidden="true"></i> Add user</button>
+        </div>
+    </div>
+</form>
+
+<br />
+
+<table class="table table-bordered" v-show="users.length"> 
+    <thead>
+        <tr class="active"> 
+            <th class="text-center">#</th> 
+            <th class="text-center">Name</th> 
+            <th class="text-center">Email</th> 
+            <th class="text-center">Control</th> 
+        </tr> 
+    </thead> 
+    <tbody>
+        <tr v-for="user in users" transition> 
+            <th scope="row" class="text-center">{{ $index + 1 }}</th> 
+            <td>{{user.name}}</td> 
+            <td>{{user.email}}</td> 
+            <td class="text-center"><button type="button" class="btn btn-link" v-on:click="removeUser(user)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button></td> 
+        </tr> 
+    </tbody> 
+</table>

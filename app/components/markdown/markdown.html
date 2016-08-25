@@ -1,0 +1,9 @@
+<blockquote>
+    <p class="lead">This is a simple Markdown editor. This example makes it possible to get acquainted with the the markup Markdown format.</p>
+    <footer>This example can be found <a href="http://vuejs.org/examples/index.html" target="_blank">here</a></footer>
+</blockquote>
+<div id="editor">
+    <textarea rows="10" v-model="input" debounce="300" autofocus></textarea>
+    <div class="markdown-body" v-if="input" v-html="input | marked"></div>
+    <div v-else v-html="input"></div>
+</div>

@@ -1,0 +1,34 @@
+#demo .comhead {
+    color: #828282;
+  font-size: 11px;
+  margin-bottom: 8px;
+}
+  
+#demo .comhead   a {
+    color: #828282;
+}
+
+#demo .comhead a:hover {
+    text-decoration: underline;
+}
+
+#demo .comhead .toggle {
+    margin-right: 4px;
+}
+    
+
+#demo .comment-content {
+    margin: 0 0 16px 24px;
+  word-wrap: break-word;
+}
+  
+#demo .comment-content code {
+    white-space: pre-wrap;
+}
+    
+
+#demo .child-comments {
+    margin: 8px 0 8px 22px;
+}
+  
+

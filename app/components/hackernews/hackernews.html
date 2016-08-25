@@ -1,0 +1,27 @@
+<blockquote>
+    <p class="lead">This is a HackerNews clone built upon HN’s official <a href="https://github.com/HackerNews/API" target="_blank">Firebase API</a>, and using Asynchronous module definition (AMD) is a JavaScript specification that defines an API for defining code modules and their dependencies, and loading them asynchronously if desired.</p>
+    <footer>This example can be found <a href="http://vuejs.org/examples/hackernews.html" target="_blank">here</a></footer>
+</blockquote>
+
+<div id="demo">
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <a id="yc" href="http://www.ycombinator.com">
+                <img src="https://news.ycombinator.com/y18.gif">
+            </a>
+            <h1><a href="#" v-link="'/hackernews/news/1'">Hacker News</a></h1>
+            <span class="source">
+                Built with <a href="http://vuejs.org" target="_blank">Vue.js</a> |
+                <a href="https://github.com/vuejs/vue-hackernews" target="_blank">Source</a>
+            </span>
+        </div>
+        <!-- main view -->
+        <router-view
+            class="view"
+            keep-alive
+            transition
+            transition-mode="out-in">
+        </router-view>
+    </div>
+</div>

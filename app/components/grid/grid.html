@@ -1,0 +1,26 @@
+<blockquote>
+    <p>This is an example of creating a reusable grid component and using it with external data.</p>
+    <footer>This example can be found <a href="http://vuejs.org/examples/grid-component.html" target="_blank">here</a></footer>
+</blockquote>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <!-- demo root element -->
+        <div id="demo">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="inputQuery">Search</label>
+                    <input type="text" class="form-control" id="inputQuery" placeholder="Filter data" name="inputQuery" v-model="searchQuery">
+                </div>
+            </form>
+            <br />
+            <grid-table
+                :data="gridData"
+                :columns="gridColumns"
+                :filter-key="searchQuery">
+            </grid-table>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+

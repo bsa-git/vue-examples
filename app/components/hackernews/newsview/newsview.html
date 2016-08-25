@@ -1,0 +1,14 @@
+<div class="news-view" :class="{ loading: !items.length }">
+    <!-- item list -->
+    <item
+        v-for="item in items"
+        :item="item"
+        :index="$index | formatItemIndex"
+        track-by="id">
+    </item>
+    <!-- navigation -->
+    <div class="nav" v-show="items.length > 0">
+        <a v-if="page > 1" href="#" v-link="'/hackernews/news/' + (page - 1)">&lt; prev</a>
+        <a v-if="page < 4" href="#" v-link="'/hackernews/news/' + (page + 1)">more...</a>
+    </div>
+</div>

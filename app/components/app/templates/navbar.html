@@ -1,0 +1,35 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="exotic navbar-brand" v-link="'/'" >Vue.js Examples</a>
+            <ul class="nav navbar-nav">
+                <li class="nav-item" >    
+                    <a v-link="'/home'" >Home</a>
+                </li>
+                <li class="dropdown" :class="{ 'active': $route.test }" >
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Testing <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a v-link="'/todo'" ><i class="fa fa-calendar-check-o" aria-hidden="true"></i> TodoMVC</a>
+                        </li>
+                        <li>
+                            <a v-link="'/markdown'" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Markdown Editor</a>
+                        </li>
+                        <li>
+                            <a v-link="'/github'" ><i class="fa fa-github" aria-hidden="true"></i> GitHub Commits</a>
+                        </li>
+                        <li>
+                            <a v-link="'/firebase'" ><i class="fa fa-fire" aria-hidden="true"></i> Firebase + Validation</a>
+                        </li>
+                        <li>
+                            <a v-link="'/grid'" ><i class="fa fa-sort-alpha-asc" aria-hidden="true"></i> Grid Component</a>
+                        </li>
+                        <li>
+                            <a v-link="'/hackernews/news/1'" ><i class="fa fa-cloud-download" aria-hidden="true"></i> Hacker News</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

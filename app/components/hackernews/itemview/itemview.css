@@ -1,0 +1,38 @@
+#demo .item-view .item {
+    padding-left: 0;
+    margin-bottom: 30px;
+}
+    
+#demo .item-view .item .index {
+    display: none;
+}
+      
+#demo .item-view .poll-options {
+    margin-left: 30px;
+    margin-bottom: 40px;
+}
+    
+#demo .item-view .poll-options li {
+    margin: 12px 0;
+}
+      
+#demo .item-view .poll-options li p {
+    margin: 8px 0;
+}
+      
+#demo .item-view .poll-options li.subtext{
+    color: #828282;
+      font-size: 11px;
+}
+      
+#demo .item-view .itemtext {
+    color: #828282;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+    
+#demo .item-view .itemtext p {
+    margin: 10px 0;
+}
+        
+    

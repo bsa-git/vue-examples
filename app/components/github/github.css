@@ -1,0 +1,14 @@
+#demo {
+    font-family: 'Helvetica', Arial, sans-serif;
+}
+#demo a {
+    text-decoration: none;
+    color: #f66;
+}
+#demo li {
+    line-height: 1.5em;
+    margin-bottom: 20px;
+}
+#demo .author, #demo .date {
+    font-weight: bold;
+}

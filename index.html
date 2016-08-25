@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- edge, 7,8,9,10 -->
+        <link rel="icon" href="app/img/logo.png" type="image/x-icon">
+        <title>Vue.js / Examples</title>
+        
+        <!-- Google fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
+
+        <!-- Awesome fonts -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+
+        <!-- Bootstrap CSS -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <!-- Common Data -->
+        <!--<app-common></app-common>-->
+        <!-- Fixed NavBar -->
+        <app-navbar></app-navbar>
+        <div id="content" class="container">
+            <!-- Header -->
+            <app-header></app-header>
+            <!-- Page Header -->
+            <div class="page-header"><h1 v-text="$route.title"></h1></div>
+            <!-- Message Box -->
+            <!--<app-msgbox></app-msgbox>-->
+            <!-- Page Content -->
+            <!--<div id="page_content"><component :is="page"></component></div>-->
+            <!-- use router-view element as route outlet -->
+            <div id="page_content"><router-view></router-view></div>
+            <!-- Footer Menu -->
+            <app-footer-menu></app-footer-menu>
+            <!-- Footer Privacy -->
+            <app-footer-privacy></app-footer-privacy>
+        </div>
+        <!-- /container -->
+
+        <!-- scheme -->
+        <link href="app/schemes/black-white-gray/css/style.css" rel="stylesheet" media="screen">
+        <!-- Include MyStyle -->
+        <link rel="stylesheet" href="app/css/mystyle.css" />
+        <!-- jQuery first, then Bootstrap JS. -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <!-- Require -->
+        <script type="text/javascript" data-main="main" src="app/js/lib/requirejs/require.js"></script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+#demo .user-view {
+    color: #828282;
+}
+  
+#demo .user-view li {
+    margin: 5px 0;
+}
+    
+#demo .user-view .label {
+    color: #333;
+    font-weight: bold;
+    display: inline-block;
+    min-width: 60px;
+}
+    
+#demo .user-view .about {
+    margin-top: 1em;
+}
+    
+#demo .user-view .links a {
+    text-decoration: underline;
+}
+    

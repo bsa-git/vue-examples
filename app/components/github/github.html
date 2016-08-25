@@ -1,0 +1,28 @@
+<blockquote>
+    <p class="lead">This example fetches latest "Silex-MVC" commits data from GitHub’s API and displays them as a list. You can switch between the master and other branches.</p>
+    <footer>This example can be found <a href="http://vuejs.org/examples/commits.html" target="_blank">here</a></footer>
+</blockquote>
+
+<div id="demo">
+    <h1>Latest Silex-MVC Commits</h1>
+    <div class="radio-inline" v-for="branch in branches">
+        <label :for="branch">
+            <input type="radio"
+                   name="branch"
+                   :id="branch"
+                   :value="branch"
+                   v-model="currentBranch"> 
+            {{branch}}
+        </label>
+    </div>
+    <p class="lead">bsa-git/silex-mvc@{{currentBranch}}</p>
+    <ul>
+        <li v-for="record in commits">
+            <a :href="record.html_url" target="_blank" class="commit">{{record.sha.slice(0, 7)}}</a>
+            - <span class="message">{{record.commit.message | truncate}}</span><br>
+            by <span class="author">{{record.commit.author.name}}</span>
+            at <span class="date">{{record.commit.author.date | formatDate}}</span>
+        </li>
+    </ul>
+</div>
+
