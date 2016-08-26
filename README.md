@@ -50,3 +50,43 @@ If you are an experienced frontend developer and want to know how Vue.js compare
 to other libraries/frameworks, check out the [Comparison with Other Frameworks](http://vuejs.org/guide/comparison.html); 
 if you are more interested about how Vue.js approaches larger-scale applications, 
 check out the section on [Building Larger-Scale Applications](http://vuejs.org/guide/application.html).
+
+## Examples
+
+### TodoMVC
+
+This example uses [Firebase](https://www.firebase.com/) as the data persistence backend. 
+Example is a fully spec-compliant TodoMVC implementation in under minimum effective 
+lines of JavaScript (excluding comments and blank lines).
+
+### Markdown Editor
+
+This is simple Markdown editor. [Markdown](http://daringfireball.net/projects/markdown/) 
+is a way to style text on the web. You control the display of the document; 
+formatting words as bold or italic, adding images, and creating lists are just a 
+few of the things we can do with Markdown.
+
+### GitHub Commits
+
+This example fetches latest "Silex-MVC" commits data from GitHub’s API and displays 
+them as a list. You can switch between the master and other branches. 
+GitHub is a code hosting platform for version control and collaboration. 
+It lets you and others work together on projects from anywhere.
+
+### Firebase + Validation
+
+This example uses [Firebase](https://www.firebase.com/) as the data persistence 
+backend and syncs between clients in real time (you can try opening it in multiple browser tabs). 
+In addition, it performs instant validation using computed properties and triggers 
+CSS transitions when adding/removing items.
+
+### Sort Grid Component
+
+This is an example of creating a reusable grid component and using it with external data.
+
+### Hacker News
+
+This is a HackerNews clone built upon HN’s official [Firebase API](https://github.com/HackerNews/API), 
+and using Asynchronous module definition (AMD) is a JavaScript specification 
+that defines an API for defining code modules and their dependencies, and loading 
+them asynchronously if desired.
