@@ -129,15 +129,20 @@ require([
                             component: ItemView
                         }
                     },
-                    
                 },
             });
-            
-            router.beforeEach(function () {
-                window.scrollTo(0, 0);
-            })
+
             // now we can start the app!
             // router will create an instance of App and mount to
             // the element matching the selector #app.
             router.start(App, 'body');
+            
+            // Set window.BSA.router
+            if (undefined === window.BSA) {
+                window.BSA = {};
+                window.BSA.router = router;
+                window.BSA.app = router.app;
+                window.BSA.setMsg = router.app.$options.methods.setMsg;
+            }
+
         });
