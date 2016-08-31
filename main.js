@@ -9,6 +9,7 @@ requirejs.config({
         firebase: 'app/js/lib/firebase/firebase',
         firebase_api: 'app/js/lib/firebase/firebase.api',
         underscore: 'app/js/lib/underscore/underscore.min',
+        extend_class: 'app/js/lib/ExtendClass/Extend.class',
         events: 'app/js/lib/events/events',
         es6_promise: 'app/js/lib/es6-promise/es6-promise.min',
     },
@@ -29,7 +30,7 @@ requirejs.config({
             exports: 'EventEmitter'
         },
         'app/components/app/app': {
-            deps: ['underscore']
+            deps: ['extend_class', 'underscore']
         },
     }
 });
@@ -132,17 +133,16 @@ require([
                 },
             });
 
+            // Global before hook to the router,
+            // which will be called before 
+            // every route transition starts
+            router.beforeEach(function () {
+                router.app.$options.sys.resetMsg();
+            })
+
             // now we can start the app!
             // router will create an instance of App and mount to
             // the element matching the selector #app.
             router.start(App, 'body');
-            
-            // Set window.BSA.router
-            if (undefined === window.BSA) {
-                window.BSA = {};
-                window.BSA.router = router;
-                window.BSA.app = router.app;
-                window.BSA.setMsg = router.app.$options.methods.setMsg;
-            }
 
         });

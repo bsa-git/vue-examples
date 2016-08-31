@@ -1,4 +1,4 @@
 <div class="alert alert-{{ type }}  alert-dismissible" role="alert" v-show="msg">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" v-on:click="resetMsg"><span aria-hidden="true">&times;</span></button>
   <strong>{{ title }}!</strong> {{ msg }}
 </div>

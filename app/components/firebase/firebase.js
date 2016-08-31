@@ -16,33 +16,46 @@ define([
         data: function () {
             return {
                 users: [],
-            newUser: {
-                name: '',
-                email: ''
-            }
+                newUser: {
+                    name: '',
+                    email: ''
+                }
             }
         },
         created: function () {
-            /**
-             * Setup firebase sync
-             */
-            Users = new Firebase(baseURL + 'users');
-            var self = this;
-            Users.on('child_added', function (snapshot) {
-                var item = snapshot.val()
-                item.id = snapshot.key()
-                self.users.push(item)
-            })
-
-            Users.on('child_removed', function (snapshot) {
-                var id = snapshot.key()
-                self.users.some(function (user) {
-                    if (user.id === id) {
-                        self.users.$remove(user)
-                        return true
-                    }
+            try
+            {
+                /**
+                 * Setup firebase sync
+                 */
+                Users = new Firebase(baseURL + 'users');
+                var self = this;
+                Users.on('child_added', function (snapshot) {
+                    var item = snapshot.val()
+                    item.id = snapshot.key()
+                    self.users.push(item)
                 })
-            })
+
+                Users.on('child_removed', function (snapshot) {
+                    var id = snapshot.key()
+                    self.users.some(function (user) {
+                        if (user.id === id) {
+                            self.users.$remove(user)
+                            return true
+                        }
+                    })
+                })
+                this.$router.app.$options.sys.setMsg({
+                    type: 'danger',
+                    title: 'Ошибка',
+                    msg: 'Прошу внимание... ОШИБКА!!!'
+                });
+            } catch (ex) {
+                if (ex instanceof Error) {
+                    this.$router.app.$options.sys.onFailure(ex.name + ": " + ex.message);
+                }
+
+            }
         },
         // computed property for form validation state
         computed: {
