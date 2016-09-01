@@ -7,14 +7,14 @@ define([], function () {
      *
      * @author   Sergii Beskorovainyi <bsa2657@yandex.ru>
      * @license  MIT <http://www.opensource.org/licenses/mit-license.php>
-     * @link     https://github.com/bsa-git/silex-mvc/
+     * @link     https://github.com/bsa-git/vue-examples/
      */
     var System = Class.extend({
         init: function (app) {
             this.app = app;
             this.settings = {
                 message_box: 'msg-box',
-                ttl_jstorage: 3600000   // 1h=3600000
+                ttl_jstorage: 3600000   // 1h=3600000 
             };
             //---------------
             try {

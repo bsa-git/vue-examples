@@ -151,6 +151,8 @@ require([
             // now we can start the app!
             // router will create an instance of App and mount to
             // the element matching the selector #app.
-            router.start(App, 'body');
+            router.start(App, 'body', function (){
+                router.app.$options.router = router;
+            });
 
         });

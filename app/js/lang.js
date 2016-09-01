@@ -1,4 +1,4 @@
-define(['jquery'], function ($) {
+define(['vue'], function (Vue) {
     /**
      * Lang - language functions
      *
@@ -7,57 +7,59 @@ define(['jquery'], function ($) {
      *
      * @author   Sergii Beskorovainyi <bsa2657@yandex.ru>
      * @license  MIT <http://www.opensource.org/licenses/mit-license.php>
-     * @link     https://github.com/bsa-git/silex-mvc/
+     * @link     https://github.com/bsa-git/vue-examples/
      */
     var Lang = Class.extend({
-        init: function (sys) {
-            this.sys = sys;
+        init: function (app) {
+            this.app = app;
+            this.sys = app.$options.sys;
             //------------
 
-            // Msgs
-            var msgs = this.sys.getMessages('div.msg-box p');
-            _.extend(this, msgs);
-
-            // Removed from the base URL addresses last slash
-            this['urlBase'] = _.initial(this['urlBase']).join('');
-
+            var locale = this.getLocale();
+            if(locale){
+                this.app.$set('locale', locale);
+            }
+            
             // Get translation data
-            this.getTransData();
+            this.getTransData(this.app.$get('locale'));
+        },
+        /**
+         * Get locale from jStorage database
+         * 
+         */
+        getLocale: function ()
+        {
+            var locale = '';
+            //-----------------
+            // Find value in jStorage
+            var translate = $.jStorage.get("trans");
+            if (translate && translate.locale) {
+                locale = translate.locale;
+            }
+            return locale;
         },
         /**
          * Get translation data from server
          * and save to jStorage database
          * 
          */
-        getTransData: function ()
+        getTransData: function (locale)
         {
-            var url, onAjaxSuccess;
-            var translate, hash = "";
             var ttl_jstorage = this.sys.settings['ttl_jstorage'];
             //--------------------
             try {
-                // Get translation data
-                translate = $.jStorage.get("trans");
-                if (translate) {
-                    hash = translate.hash;
-                    if (this.lang_hash === hash) {
-                        return;
-                    }
-                }
-
-                onAjaxSuccess = function (jsonData) {
-                    // Get language data
-                    if (jsonData.hash) {
-                        // Set data for TTL
-                        $.jStorage.set("trans", jsonData);
-                        $.jStorage.setTTL("trans", ttl_jstorage);
-                    }
-
-
-                };
-                // Send ajax request to the server
-                url = this['urlBase'] + '/lang';
-                this.sys.post(url, {hash: hash}, onAjaxSuccess, false);
+                var res = 'app/translations/msg.' + locale;
+                require([res], function (resTrans) {
+                    var trans = {
+                        locale: locale,
+                        values: resTrans
+                    };
+                    $.jStorage.set("trans", trans);
+//                    $.jStorage.setTTL("trans", ttl_jstorage);
+                    
+                    // Create filter
+//                    Vue.filter('trans', this.trans);
+                });
 
             } catch (ex) {
                 if (ex instanceof Error) {
@@ -76,19 +78,10 @@ define(['jquery'], function ($) {
          */
         trans: function (messageId, options)
         {
-            var ttl_jstorage = this.sys.settings['ttl_jstorage'];
-            var translate, tmpl, url, msg;
+            var translate, tmpl, msg;
             var result = "";
             options = options || {};
             //-----------------------
-
-            // Find value in this
-            if (this[messageId]) {
-                msg = this[messageId];
-                tmpl = _.template(msg);
-                result = tmpl(options);
-                return result;
-            }
 
             // Find value in jStorage
             translate = $.jStorage.get("trans");
@@ -98,27 +91,7 @@ define(['jquery'], function ($) {
                     tmpl = _.template(msg);
                     result = tmpl(options);
                 }
-            } else {
-                onAjaxSuccess = function (jsonData) {
-                    // Get language data
-                    if (jsonData.hash) {
-                        // Set data for TTL
-                        $.jStorage.set("trans", jsonData);
-                        $.jStorage.setTTL("trans", ttl_jstorage);
-
-                        // Get value
-                        translate = $.jStorage.get("trans");
-                        if (translate.values[messageId]) {
-                            msg = translate.values[messageId];
-                            tmpl = _.template(msg);
-                            result = tmpl(options);
-                        }
-                    }
-                };
-                // Send synchronous ajax request to the server
-                url = this['urlBase'] + '/lang';
-                this.sys.post(url, {hash: ''}, onAjaxSuccess, false);
-            }
+            } 
             return result;
         }
     });

@@ -1,4 +1,4 @@
-(function () {
+define([], function () {
     var trans = {
         //--- MENU ---
         registration: 'регистрация',
@@ -105,5 +105,5 @@
         valid_user_with_this_login_not_exists: "Пользователь с таким логином отсутствует"
     }
     return trans;
-})();
+});
 

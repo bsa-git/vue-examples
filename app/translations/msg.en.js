@@ -1,4 +1,4 @@
-(function () {
+define([], function () {
     var trans = {
         
         //--- MENU ---
@@ -106,7 +106,7 @@
         valid_user_with_this_login_not_exists: "User with this login missing"
     };
     return trans;
-})();
+});
 
 
 
