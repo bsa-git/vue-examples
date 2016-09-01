@@ -86,7 +86,7 @@ define([], function () {
             if (_.isString(message)) {
                 this.setMsg({
                     type: 'danger',
-                    title: 'Error',
+                    title: 'Oh snap',
                     msg: message
                 });
                 return;

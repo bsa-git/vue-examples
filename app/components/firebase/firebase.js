@@ -12,6 +12,7 @@ define([
     // Create component class
     var FirebaseUsers = Vue.extend({
         name: 'firebase',
+        sys: null,
         template: template,
         data: function () {
             return {
@@ -24,35 +25,34 @@ define([
         },
         created: function () {
             try
-            {
+            {   
+                // Set alias for sys
+                this.$options.sys = this.$router.app.$options.sys;
+                
                 /**
                  * Setup firebase sync
                  */
                 Users = new Firebase(baseURL + 'users');
                 var self = this;
                 Users.on('child_added', function (snapshot) {
-                    var item = snapshot.val()
-                    item.id = snapshot.key()
-                    self.users.push(item)
-                })
+                    var item = snapshot.val();
+                    item.id = snapshot.key();
+                    self.users.push(item);
+                });
 
                 Users.on('child_removed', function (snapshot) {
-                    var id = snapshot.key()
+                    var id = snapshot.key();
                     self.users.some(function (user) {
                         if (user.id === id) {
-                            self.users.$remove(user)
-                            return true
-                        }
-                    })
-                })
-                this.$router.app.$options.sys.setMsg({
-                    type: 'danger',
-                    title: 'Ошибка',
-                    msg: 'Прошу внимание... ОШИБКА!!!'
+                            self.users.$remove(user);
+                            return true;
+                        };
+                    });
                 });
+                throw new Error('Ошибка - Firebase!');
             } catch (ex) {
                 if (ex instanceof Error) {
-                    this.$router.app.$options.sys.onFailure(ex.name + ": " + ex.message);
+                    this.$options.sys.onFailure(ex.name + ": " + ex.message);
                 }
 
             }

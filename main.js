@@ -10,6 +10,8 @@ requirejs.config({
         firebase_api: 'app/js/lib/firebase/firebase.api',
         underscore: 'app/js/lib/underscore/underscore.min',
         extend_class: 'app/js/lib/ExtendClass/Extend.class',
+        storage: 'app/js/lib/jstorage/jstorage.min',
+        json: 'app/js/lib/json/json2',
         events: 'app/js/lib/events/events',
         es6_promise: 'app/js/lib/es6-promise/es6-promise.min',
     },
@@ -26,11 +28,17 @@ requirejs.config({
         'underscore': {
             exports: '_'
         },
+        'json': {
+            exports: 'JSON'
+        },
+        'storage': {
+            deps: ['json']
+        },
         'events': {
             exports: 'EventEmitter'
         },
         'app/components/app/app': {
-            deps: ['extend_class', 'underscore']
+            deps: ['extend_class', 'underscore', 'storage']
         },
     }
 });
