@@ -1,4 +1,4 @@
-define(['vue'], function (Vue) {
+define([], function () {
     /**
      * Lang - language functions
      *
@@ -16,12 +16,8 @@ define(['vue'], function (Vue) {
             //------------
 
             var locale = this.getLocale();
-            if(locale){
-                this.app.$set('locale', locale);
-            }
-            
             // Get translation data
-            this.getTransData(this.app.$get('locale'));
+            this.getTransData(locale);
         },
         /**
          * Get locale from jStorage database
@@ -35,6 +31,8 @@ define(['vue'], function (Vue) {
             var translate = $.jStorage.get("trans");
             if (translate && translate.locale) {
                 locale = translate.locale;
+            }else{
+                locale = 'en';
             }
             return locale;
         },
@@ -57,8 +55,6 @@ define(['vue'], function (Vue) {
                     $.jStorage.set("trans", trans);
 //                    $.jStorage.setTTL("trans", ttl_jstorage);
                     
-                    // Create filter
-//                    Vue.filter('trans', this.trans);
                 });
 
             } catch (ex) {

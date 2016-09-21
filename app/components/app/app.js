@@ -20,7 +20,6 @@ define([
         router: null,
         data: function () {
             return {
-                locale: 'en',
             }
         },
         created: function () {
@@ -37,17 +36,6 @@ define([
                     alert(message);
                 }
             }
-        },
-        watch: {
-            'locale': function (val, oldVal) {
-                this.$options.lang.getTransData(val);
-                window.location.replace(this.$route.path);
-//                this.$router.replace('/todo');// this.$route.path
-//                this.$destroy();
-//                this.$mount('body');
-//                this.$options.router.go('http://vue-examples/#!/todo');
-//                console.log('new: %s, old: %s', val, oldVal);
-            },
         },
         components: {
             'app-navbar': {
@@ -84,7 +72,9 @@ define([
                 // methods
                 methods: {
                     setLocale: function (locale) {
-                        this.$root.$set('locale', locale);
+                        this.$root.$options.lang.getTransData(locale);
+                        window.location.replace(this.$route.path);
+
                     },
                 }
             },
