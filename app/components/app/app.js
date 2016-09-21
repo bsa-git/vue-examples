@@ -73,7 +73,7 @@ define([
                 methods: {
                     setLocale: function (locale) {
                         this.$root.$options.lang.getTransData(locale);
-                        window.location.replace(this.$route.path);
+                        window.location.reload(true);
 
                     },
                 }

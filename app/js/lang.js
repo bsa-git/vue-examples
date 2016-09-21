@@ -75,7 +75,7 @@ define([], function () {
         trans: function (messageId, options)
         {
             var translate, tmpl, msg;
-            var result = "";
+            var result = messageId;
             options = options || {};
             //-----------------------
 

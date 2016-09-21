@@ -18,6 +18,12 @@ define([], function () {
         blue: 'blue',
         pagination: 'pagination',
         user_posts: 'user posts',
+        examples: 'examples',
+        community: 'community',
+        guide: 'guide',
+        forum: 'forum',
+        сhat: 'сhat',
+        readme: 'readme',
         
         //--- FORM ---
         Username: 'Username',
@@ -33,7 +39,7 @@ define([], function () {
         Personal_mobile: 'Personal mobile',
         
         //--- MESSAGES ---
-        developer_copyright: "© 2015 by Sergei Beskorovainyi. All rights reserved",
+        developer_copyright: "© 2016 by Sergei Beskorovainyi. All rights reserved",
         alert_warning: 'attention',
         alert_danger: 'error',
         alert_success: 'congratulations',

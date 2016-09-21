@@ -4,10 +4,10 @@
             <a class="exotic navbar-brand" v-link="'/'" >Vue.js Examples</a>
             <ul class="nav navbar-nav">
                 <li class="nav-item" >    
-                    <a v-link="'/home'" >Home</a>
+                    <a v-link="'/home'" >{{ 'home'|trans|capitalize }}</a>
                 </li>
                 <li class="dropdown" :class="{ 'active': $route.test }" >
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Testing <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'testing'|trans|capitalize }} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a v-link="'/todo'" ><i class="fa fa-calendar-check-o" aria-hidden="true"></i> TodoMVC</a>

@@ -18,6 +18,12 @@ define([], function () {
         pagination: 'нумерация страниц',
         user_posts: 'сообщения пользователей',
         documentation: 'документация',
+        examples: 'примеры',
+        community: 'сообщество',
+        guide: 'руководство',
+        forum: 'форум',
+        сhat: 'чат',
+        readme: 'краткое описание',
         
         //--- FORM ---
         Username: 'Логин',
@@ -33,7 +39,7 @@ define([], function () {
         Personal_mobile: 'Мобильный телефон',
         
         //--- MESSAGES ---
-        developer_copyright: "© 2015 Сергей Бескоровайный. Все права защищены",
+        developer_copyright: "© 2016 Сергей Бескоровайный. Все права защищены",
         alert_warning: 'внимание',
         alert_danger: 'ошибка',
         alert_success: 'поздравляем',

@@ -1,12 +1,12 @@
 <div id="footer" class="row">
     <div class="col-xs-3">
-        <h3>Help</h3>
+        <h3>{{ 'help'|trans|capitalize }}</h3>
         <ul>
             <li>
-                <a v-link="'/license'" >License</a>
+                <a v-link="'/license'" >{{ 'license'|trans|capitalize }}</a>
             </li>
             <li>
-                <a v-link="'/readme'" >Readme</a>
+                <a v-link="'/readme'" >{{ 'readme'|trans|capitalize }}</a>
             </li>
             <li>
                 <a href="https://github.com/bsa-git/vue-examples/" target="_blank">GitHub</a>
@@ -14,33 +14,33 @@
         </ul>
     </div>
     <div class="col-xs-3">
-        <h3>Documentation</h3>
+        <h3>{{ 'documentation'|trans|capitalize }}</h3>
         <ul>
             <li>
-                <a href="http://vuejs.org/guide/" target="_blank">Guide</a>
+                <a href="http://vuejs.org/guide/" target="_blank">{{ 'guide'|trans|capitalize }}</a>
             </li>
             <li>
                 <a href="http://vuejs.org/api/" target="_blank">API</a>
             </li>
             <li>
-                <a href="http://vuejs.org/examples/" target="_blank">Examples</a>
+                <a href="http://vuejs.org/examples/" target="_blank">{{ 'examples'|trans|capitalize }}</a>
             </li>
         </ul>
     </div>
     <div class="col-xs-3">
-        <h3>Community</h3>
+        <h3>{{ 'community'|trans|capitalize }}</h3>
         <ul>
             <li>
-                <a href="http://vuejs.org/blog/" target="_blank">Blog</a>
+                <a href="http://vuejs.org/blog/" target="_blank">{{ 'blog'|trans|capitalize }}</a>
             </li>
             <li>
                 <a href="https://github.com/vuejs/vue" target="_blank">GitHub</a>
             </li>
             <li>
-                <a href="http://forum.vuejs.org/" target="_blank">Forum</a>
+                <a href="http://forum.vuejs.org/" target="_blank">{{ 'forum'|trans|capitalize }}</a>
             </li>
             <li>
-                <a href="https://gitter.im/vuejs/vue" target="_blank">Chat</a>
+                <a href="https://gitter.im/vuejs/vue" target="_blank">{{ 'сhat'|trans|capitalize }}</a>
             </li>
             <li>
                 <a href="https://twitter.com/vuejs" target="_blank">Twitter</a>
@@ -48,7 +48,7 @@
         </ul>
     </div>
     <div class="col-xs-3">
-        <h3>Select language:</h3>
+        <h3>{{ 'select_language'|trans|capitalize }}:</h3>
         <ul>
             <li :class="{active: locale == 'en'}">
                 <a v-link="$route.path" @click="setLocale('en')">{{ 'english'|trans|capitalize }}</a>
