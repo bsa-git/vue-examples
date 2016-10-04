@@ -49,7 +49,6 @@ define([
                         };
                     });
                 });
-                throw new Error('Ошибка - Firebase!');
             } catch (ex) {
                 if (ex instanceof Error) {
                     this.$options.sys.onFailure(ex.name + ": " + ex.message);
