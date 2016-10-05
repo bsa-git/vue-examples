@@ -47,7 +47,8 @@ few of the things we can do with Markdown.
 
 ### GitHub Commits
 
-This example fetches latest "Silex-MVC" commits data from GitHub’s API and displays 
+This example fetches latest [Silex-MVC]( https://github.com/bsa-git/silex-mvc/ ) 
+commits data from GitHub’s API and displays 
 them as a list. You can switch between the master and other branches. 
 GitHub is a code hosting platform for version control and collaboration. 
 It lets you and others work together on projects from anywhere.
