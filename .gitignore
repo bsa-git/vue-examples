@@ -52,3 +52,6 @@ Temporary Items
 
 /doc/*
 /nbproject/*
+database.rules.json
+firebase.json
+.firebaserc
