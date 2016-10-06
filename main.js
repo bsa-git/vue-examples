@@ -8,7 +8,7 @@ requirejs.config({
         marked: 'app/js/lib/marked/marked.min',
         firebase: 'app/js/lib/firebase/firebase',
         firebase_api: 'app/js/lib/firebase/firebase.api',
-        underscore: 'app/js/lib/underscore/underscore.min',
+        underscore: 'app/js/lib/underscore/underscore',
         extend_class: 'app/js/lib/ExtendClass/Extend.class',
         storage: 'app/js/lib/jstorage/jstorage.min',
         json: 'app/js/lib/json/json2',
